@@ -2,11 +2,13 @@ import { CurseForgeRetriever, ModrinthRetriever, PastebinRetriever, type Retriev
 
 export abstract class Project {
     abstract readonly title: string;
+    abstract readonly identifier: string;
     abstract readonly retrievers: Array<Retriever>;
 }
 
 export class CustomCrosshairMod extends Project {
     public readonly title = 'Custom Crosshair Mod';
+    public readonly identifier = 'custom_crosshair_mod';
 
     public readonly retrievers = [
         new ModrinthRetriever('o1tyE5vJ'),
@@ -17,6 +19,7 @@ export class CustomCrosshairMod extends Project {
 
 export class HelpfulCrosshair extends Project {
     public readonly title = 'Helpful Crosshair';
+    public readonly identifier = 'helpful_crosshair';
 
     public readonly retrievers = [
         new ModrinthRetriever('7M5J9JvV'),

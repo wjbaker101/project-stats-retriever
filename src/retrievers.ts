@@ -7,12 +7,14 @@ export interface IRetrieveResult {
 
 export abstract class Retriever {
     abstract readonly name: string;
+    abstract readonly identifier: string;
     abstract retrieve(): Promise<Array<IRetrieveResult>>;
 }
 
 export class ModrinthRetriever extends Retriever {
 
     public readonly name = 'Modrinth';
+    public readonly identifier = 'modrinth';
 
     constructor(private projectId: string) {
         super();
@@ -44,6 +46,7 @@ export class ModrinthRetriever extends Retriever {
 export class CurseForgeRetriever extends Retriever {
 
     public readonly name = 'CurseForge';
+    public readonly identifier = 'curseforge';
 
     constructor(private modId: string) {
         super();
@@ -76,6 +79,7 @@ export class CurseForgeRetriever extends Retriever {
 export class PastebinRetriever extends Retriever {
 
     public readonly name = 'Pastebin';
+    public readonly identifier = 'pastebin';
 
     constructor(private pasteKey: string) {
         super();
