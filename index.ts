@@ -38,7 +38,7 @@ async function retrieve() {
 }
 
 async function save() {
-    const now = new Date().toISOString().split('.')[0];
+    const now = new Date().toISOString().split('.')[0]?.replace('T', ' ');
 
     for (const result of results) {
         const fileName = `./output/${result.projectIdentifier}+${result.retrieverIdentifier}+${result.dataType}.txt`;
