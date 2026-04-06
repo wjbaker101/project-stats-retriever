@@ -1,5 +1,3 @@
-import { JSDOM } from 'jsdom';
-
 export interface IRetrieveResult {
     readonly name: string;
     readonly count: number;
@@ -95,14 +93,21 @@ export class PastebinRetriever extends Retriever {
         });
 
         const text = await response.text();
-        const html = new JSDOM(text);
 
-        const element = html.window.document.querySelector('.visits');
-        if (element === null) {
+        let views = null;
+
+        new HTMLRewriter().on('.visits', {
+            text({ text }) {
+                const parsed = text.trim().replaceAll(',', '');
+                if (parsed.length > 0) {
+                    views = parsed;
+                }
+            },
+        }).transform(text);
+        
+        if (views === null) {
             return [];
         }
-
-        const views = element.textContent?.replaceAll(',', '');
 
         return [
             {
