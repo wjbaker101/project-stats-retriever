@@ -1,6 +1,6 @@
 import { appendFile } from 'node:fs/promises';
 
-import { CustomCrosshairMod, HelpfulCrosshair } from '@/projects.ts';
+import { CustomCrosshairMod, HelpfulCrosshair } from '@/projects';
 
 interface IFinalResult {
     readonly projectIdentifier: string;

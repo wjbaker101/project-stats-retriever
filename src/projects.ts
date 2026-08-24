@@ -1,4 +1,4 @@
-import { CurseForgeRetriever, ModrinthRetriever, PastebinRetriever, type Retriever } from '@/retrievers.ts';
+import { CurseForgeRetriever, ModrinthRetriever, PastebinRetriever, type Retriever } from '@/retrievers';
 
 export abstract class Project {
     abstract readonly title: string;
