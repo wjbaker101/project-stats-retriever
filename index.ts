@@ -32,7 +32,9 @@ async function retrieve() {
                     count: x.count,
                 })));
             }
-            catch (error) {}
+            catch (error) {
+                console.log(error);
+            }
         }
     }
 }
